@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 json/
+*.zip
 
 # Editor directories and files
 .vscode/*
@@ -24,3 +25,4 @@ json/
 *.sln
 *.sw?
 
+guitar-store.zip
