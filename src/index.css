@@ -540,7 +540,7 @@ footer {
   #navegacion {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
     align-items: center;
   }
