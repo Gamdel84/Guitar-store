@@ -510,14 +510,13 @@ footer {
   .contenedor-carousel { height: 200px; }
   .cont-torres {
     display: flex;
-    flex-direction: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    width: 80%;
-  }
+    width: 100%;
+  } 
   .cont-torres img {
-    width: 30%;
-    margin-bottom: 20px;
-  };
+    width: -70%;
+  }
  
 }
 
@@ -535,6 +534,10 @@ footer {
   #navegacion {
     gap: 10px;
   }
+    .cont-torres {
+    display: none;
+  } 
+ 
 
   .contenedor-carousel { height: 180px; }
 }
