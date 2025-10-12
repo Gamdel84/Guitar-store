@@ -537,7 +537,10 @@ footer {
     .cont-torres {
     display: none;
   } 
- 
+  li a {
+    font-size: 1rem;
+    padding: 6px 8px;
+  }
 
   .contenedor-carousel { height: 180px; }
 }
