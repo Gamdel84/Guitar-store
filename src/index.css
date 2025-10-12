@@ -537,9 +537,12 @@ footer {
     .cont-torres {
     display: none;
   } 
-  li a {
-    font-size: 1rem;
-    padding: 6px 8px;
+  #navegacion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
   }
 
   .contenedor-carousel { height: 180px; }
