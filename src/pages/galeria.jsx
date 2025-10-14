@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import CarritoCompras from "./carrito";
+import CarritoCompras from "../components/carrito";
 
 const API_URL = "https://68e033f693207c4b4793f5d0.mockapi.io/api/guitars";
 
@@ -36,14 +36,14 @@ export default function Galeria() {
 
   return (
     <>
-      <h2>Galeria de compras</h2>
+      <h2>♪♫ Galeria de compras ♫♪</h2>
       <ul className="cards-container">
         {items.map((g) => (
           <li key={g.id} className="cards">
             <span>{g.marca || "Sin marca"}</span>
             <p>{g.modelo || "Faltan detalles"}</p>
             <p>
-              ${g.precio || "sin precio"}
+              u$s{g.precio || "sin precio"}
             </p>            
             <p>{g.tipo || "Sin especificar"}</p>
               <img
@@ -61,6 +61,9 @@ export default function Galeria() {
         ))}
       </ul>
       <CarritoCompras carrito={carrito} setCarrito={setCarrito} />
+      <div className='botones'>
+        <Link to= "/"><button>Volver al inicio</button></Link>
+      </div>
     </>
   );
 }

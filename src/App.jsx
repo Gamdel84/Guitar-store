@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "./pages/header.jsx";
-import Navbar from "./pages/navbar.jsx";
+import Header from "./components/header.jsx";
+import Navbar from "./components/navbar.jsx";
 import Inicio from "./pages/inicio.jsx";
 import Galeria from "./pages/galeria.jsx";
 import DetalleGaleria from "./pages/detalleGaleria.jsx";
 import Servicios from "./pages/servicios.jsx";
-import Sesion from "./pages/sesion.jsx";
-import RutaProtegida from "./pages/rutaProtegida.jsx";
-import Pagar from "./pages/pagar.jsx";
+import Sesion from "./components/sesion.jsx";
+import RutaProtegida from "./components/rutaProtegida.jsx";
+import Pagar from "./components/pagar.jsx";
 import Contacto from "./pages/contacto.jsx";
-import Footer from "./pages/footer.jsx";
+import Footer from "./components/footer.jsx";
+import Arriba from "./components/arriba.jsx";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -43,6 +44,7 @@ export default function App() {
         />
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
+      <Arriba />
       <Footer />
     </>
   );

@@ -1,14 +1,14 @@
 import React from 'react'
-import Carousel from './carousel.jsx'
+import Carousel from '../components/carousel.jsx'
 
 function inicio() {
   return (
     <>
-      <h2>Bienvenidos al mundo de las cuerdas</h2> 
-      <Carousel />
+      <h2>♪♫ Bienvenidos al mundo de las cuerdas ♫♪</h2>
       <div className="cont-inicio">
         <div className='cont-torres'>
           <img src="/img/torre_izq1.png" alt="Torre de parlantes" className='torres' />
+          <Carousel />
           <img src="/img/torre_der1.png" alt="Torre de parlantes" className='torres' />
         </div>
       

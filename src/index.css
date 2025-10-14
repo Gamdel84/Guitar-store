@@ -24,7 +24,7 @@ body {
 }
 
 header {
-  padding: 10px;
+  padding: 8px;
   text-align: center;
   box-shadow: 0 4px 6px #000;
 }
@@ -35,7 +35,7 @@ header a {
 
 .logo {
   display: inline-block;
-  width: 150px;
+  width: 120px;
 }
 
 h1 {
@@ -51,12 +51,11 @@ h1 {
 
 h2 {
   color: var(--title-color);
-  margin: 10px;
+  margin: 10px auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  font-size: 2rem;
-  text-shadow: 0 0 4px var(--p-color);
-  
+  font-size: 1.8rem;
+  text-shadow: 0 0 4px var(--p-color);  
 }
 
 p {
@@ -96,17 +95,13 @@ nav {
   background-color: var(--bg-li);
 }
 
-#navegacion li {
-  display: inline-block;
-}
-
 #navegacion a {
   color: var(--p-color);
   text-decoration: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   font-size: 1.2rem;
-  padding: 5px 18px;
+  padding: 5px 10px;
   border-radius: 10px;
   background-color: var(--bg-header);
   transition: background-color 0.3s, color 0.3s;
@@ -119,6 +114,14 @@ nav {
 
 hr {
   padding: 1px;
+  margin: 1px 0 1px 0;
+}
+
+.claves {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--p-color);
+  text-shadow: 0 0 2px var(--p-color);
 }
 
 .contenedor-carousel {
@@ -142,7 +145,7 @@ hr {
   top: 0;
   left: 0;
   width: 100%;
-  height: 60%;
+  height: 50%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -153,22 +156,32 @@ hr {
 }
 
 .cont-inicio {
-display: block;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+flex-wrap: wrap;
+margin: 20px 0;
+gap: 20px;
+border: 2px solid var(--bg-nav);
+border-radius: 5px;
 }
 
 .cont-torres {
 display: flex;
-justify-content: space-around;
+justify-content: space-evenly;
 align-items: center;
-flex-wrap: wrap;
+}
+
+.torres {
+  width: 150px;
 }
 
 .cont-inicio p {
-  display: block;
-  margin-bottom: 200px;
   color: var(--p-color);
   font-size: 1.2rem;
   text-align: center;
+  border-top: 2px solid var(--bg-nav)
 }
 
 .guitar-item {
@@ -296,6 +309,7 @@ flex-wrap: wrap;
   padding-bottom: 20px;
   box-shadow: 4px -4px 12px 0 var(--bg-header);
   background: var(--bg, #fff);
+  margin-bottom: 20px;
 }
 
 .card-details img {
@@ -304,11 +318,12 @@ flex-wrap: wrap;
 }
 
 h3 {
-  margin: 0 auto;
+  color: var(--title-color);
+  margin: 10px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   font-size: 1.8rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--title-color);
+  text-shadow: 0 0 4px var(--p-color);   
 }
 
 fieldset {
@@ -423,6 +438,18 @@ ol li {
   font-size: 1.2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--title-color);
+}
+
+.arriba {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  
+}
+.arriba button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
 }
 
 footer {

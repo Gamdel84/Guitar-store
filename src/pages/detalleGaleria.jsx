@@ -24,10 +24,9 @@ export default function DetalleGaleria() {
             <h2>{g.marca}</h2>
             <br />
             <p>{g.modelo}</p>
-            <p>${g.precio}</p>
+            <p>u$s{g.precio}</p>
             <img src={g.avatar} alt={g.marca} width="30%" />
         </li>
-        <hr />
         <p>
           <Link to={`/galeria`}><button>Volver a Galeria</button></Link>
         </p>

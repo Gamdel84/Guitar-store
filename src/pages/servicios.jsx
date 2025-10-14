@@ -6,7 +6,7 @@ export default function Servicios() {
     
         <>
         <div className='servicios'>
-            <h2>Servicios</h2>
+            <h2>♪♫ Servicios ♫♪</h2>
             <p className='p-serv'>Ofrecemos una variedad de servicios para satisfacer tus necesidades. Dejanos tu instrumento en boxes y te lo devolveremos como nuevo.</p>
             <div>
               <ol>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Contacto() {
   const [form, setForm] = useState({ nombre: "", email: "", comentario: "" });
@@ -12,7 +13,7 @@ export default function Contacto() {
   return (
     <section>
       <header>
-        <h2 id="titulo-contacto">Contacto</h2>
+        <h2 id="titulo-contacto">♪♫ Contacto ♫♪</h2>
         <address>
           Guitar Store — Av. Siempre Viva 742, Buenos Aires<br />
           <a href="mailto:info@guitarstore.com">info@guitarstore.com</a>
@@ -69,7 +70,9 @@ export default function Contacto() {
           </div>
         </fieldset>
       </form>
-
+      <div className='botones'>
+        <Link to= "/"><button>Volver al inicio</button></Link>
+      </div>
     </section>
   );
 }
