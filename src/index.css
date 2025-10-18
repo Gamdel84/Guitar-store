@@ -669,6 +669,15 @@ footer {
     width: 100%;
     z-index: 1000;
   }
+  .botones-cantidad {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5px;
+    width: 20px;
+  }
+  .item-carrito p {
+    font-size: 0.9rem;
+  }
 
 }
 
