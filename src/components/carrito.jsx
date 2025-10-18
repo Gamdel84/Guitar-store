@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAppContext } from '../context/appContext';
 
-export default function CarritoCompras({ carrito, setCarrito }) {
+export default function CarritoCompras() {
+  const { carrito, vaciarCarrito, setCarrito } = useAppContext();
   const navigate = useNavigate();
-  const vaciarCarrito = () => {
-    setCarrito([]);
-  };
+
 
   const irAPagar = () => {
     navigate('/pagar', { state: { carrito } }); 
@@ -42,27 +42,30 @@ export default function CarritoCompras({ carrito, setCarrito }) {
   }, 0);
 
   return (
-    <div>
-      <hr />
-      <h2>Carrito de Compras</h2>
-      {carrito.length === 0 ? (
+    <>  
+    <h2>Carrito de Compras</h2>
+    <hr />
+    <div className='carrito'>
+        {carrito.length === 0 ? (
         <p className='carrito-vacio'>El carrito está vacío</p>
       ) : (
         <>
           {carrito.map((item) => (
-            <div key={item.id}>
+            <div key={item.id} className='item-carrito'>
                 <h3>{item.marca}</h3>
-
                 <p>{item.modelo}</p>
                 <p>{item.tipo}</p>
 
                 <p>
-                  ${Number(item.precio).toFixed(3)}
+                  u$s{Number(item.precio).toFixed(2)}
                 </p>
 
                 <p> 
-                (Productos seleccionados: {item.cantidad || 1})
+                Cantidad:  {item.cantidad || 1}
                 </p>
+                <div>
+                  <img src={item.avatar} alt={item.marca} width="30%" />
+                </div>
 
                 <div className='botones-cantidad'>
                   <button onClick={() => quitarCantidad(item.id)}>-</button>
@@ -74,7 +77,7 @@ export default function CarritoCompras({ carrito, setCarrito }) {
 
           <div>
             <hr />
-            <p className='total'>Monto parcial: ${Number(total).toFixed(2)}</p>
+            <p className='total'>Monto parcial: u$s{Number(total).toFixed(2)}</p>
           </div>
           <div className='botones'>
             <button onClick={vaciarCarrito}>
@@ -88,5 +91,6 @@ export default function CarritoCompras({ carrito, setCarrito }) {
         </>
       )}
     </div>
+    </>
   );
 }

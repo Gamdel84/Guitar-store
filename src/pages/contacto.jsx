@@ -12,13 +12,13 @@ export default function Contacto() {
 
   return (
     <section>
-      <header>
+      <div>
         <h2 id="titulo-contacto">♪♫ Contacto ♫♪</h2>
         <address>
           Guitar Store — Av. Siempre Viva 742, Buenos Aires<br />
           <a href="mailto:info@guitarstore.com">info@guitarstore.com</a>
         </address>
-      </header>
+      </div>
 
       <form onSubmit={onSubmit}>
         <fieldset>
@@ -31,7 +31,7 @@ export default function Contacto() {
               name="nombre"
               type="text"
               autoComplete="name"
-              placeholder="Tu nombre"
+              placeholder="Tu nombre completo..."
               required
               value={form.nombre}
               onChange={onChange}
@@ -58,7 +58,7 @@ export default function Contacto() {
               id="comentario"
               name="comentario"
               rows={4}
-              placeholder="¿En qué podemos ayudarte?"
+              placeholder="Contanos qué andas necesitando..."
               required
               value={form.comentario}
               onChange={onChange}
@@ -66,7 +66,7 @@ export default function Contacto() {
           </div>
 
           <div>
-            <button type="submit">Enviar</button>
+            <button type="submit" className="botones">Enviar</button>
           </div>
         </fieldset>
       </form>

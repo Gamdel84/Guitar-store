@@ -1,12 +1,12 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { AppProvider } from "./context/appContext.jsx";
 import Header from "./components/header.jsx";
 import Navbar from "./components/navbar.jsx";
 import Inicio from "./pages/inicio.jsx";
 import Galeria from "./pages/galeria.jsx";
 import DetalleGaleria from "./pages/detalleGaleria.jsx";
 import Servicios from "./pages/servicios.jsx";
-import Sesion from "./components/sesion.jsx";
+import IniciarSesion from "./components/sesion.jsx";
 import RutaProtegida from "./components/rutaProtegida.jsx";
 import Pagar from "./components/pagar.jsx";
 import Contacto from "./pages/contacto.jsx";
@@ -14,11 +14,11 @@ import Footer from "./components/footer.jsx";
 import Arriba from "./components/arriba.jsx";
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [usuario, setUsuario] = useState({ email: "", pass: "" });
+
 
   return (
     <>
+    <AppProvider>
       <Header />
       <Navbar />
       <Routes>
@@ -27,25 +27,17 @@ export default function App() {
         <Route path="/galeria/:id" element={<DetalleGaleria />} />
         <Route path="/galeria/:tipo/:id" element={<DetalleGaleria />} />
         <Route path="/servicios" element={<Servicios />} />
-        <Route path="/login" element={<Sesion
-              setIsAuthenticated={setIsAuthenticated}
-              setUsuario={setUsuario}
-            />
-          }
-        />
+        <Route path="/login" element={<IniciarSesion/>}/>
         <Route path="/pagar" element={
-          <RutaProtegida isAuthenticated={isAuthenticated}>
-            <Pagar 
-              setIsAuthenticated={setIsAuthenticated}
-              setUsuario={setUsuario}
-              usuario={usuario} />
+          <RutaProtegida>
+            <Pagar/>
           </RutaProtegida>
-          }
-        />
+        }/>
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
       <Arriba />
       <Footer />
+    </AppProvider>
     </>
   );
 }

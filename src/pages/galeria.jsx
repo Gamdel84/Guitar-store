@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CarritoCompras from "../components/carrito";
+import { useAppContext } from "../context/appContext";
 
 const API_URL = "https://68e033f693207c4b4793f5d0.mockapi.io/api/guitars";
 
@@ -8,7 +9,8 @@ export default function Galeria() {
   const [items, setItems] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
-  const [carrito, setCarrito] = useState([]);
+  const { agregarAlCarrito } = useAppContext();
+
 
   useEffect(() => {
     fetch(API_URL)
@@ -26,10 +28,7 @@ export default function Galeria() {
       .finally(() => setCargando(false));
   }, []);
 
-   const agregarAlCarrito = (g) => {
-    setCarrito([...carrito, g]);
-    alert(`${g.marca} agregada`);
-  }
+
 
   if (cargando) return <p>Cargando…</p>;
   if (error) return <p>{error}</p>;
@@ -51,7 +50,7 @@ export default function Galeria() {
                 alt={g.marca || g.modelo || "Producto"}
               />
             <p>
-              {/* Link corregido: usa /galeria/:id y pasa state */}
+              
               <Link to={`/galeria/${g.id}`} state={{ g }}>
                 <button>Ver detalle</button>
               </Link>
@@ -60,7 +59,7 @@ export default function Galeria() {
           </li>
         ))}
       </ul>
-      <CarritoCompras carrito={carrito} setCarrito={setCarrito} />
+      <CarritoCompras/>
       <div className='botones'>
         <Link to= "/"><button>Volver al inicio</button></Link>
       </div>

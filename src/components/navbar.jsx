@@ -1,22 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useAppContext } from '../context/appContext';
 
 
 function Navbar() {
+  const { isAuthenticated, usuario, carrito, cerrarSesion } = useAppContext();
   return (
+    
     <nav>
         <div className="cuerdas">
             <hr />
             <hr />
-            <hr />
-            
-        </div>
-        
+            <hr />            
+        </div>        
       <ul id= "navegacion">
         <li>
             <Link to="/">&#119070; Inicio</Link>
         </li>
-
         <li>
             <Link to="/galeria">&#119070; Galeria</Link>
         </li>
@@ -25,6 +25,17 @@ function Navbar() {
         </li>
         <li>
             <Link to="/contacto">&#119070; Contacto</Link>
+        </li>
+        <li>
+          {isAuthenticated ? (
+            <div className='nav-user'>
+              <button onClick={cerrarSesion} className='btn-cl-sesion'>Cerrar Sesión</button>
+              <span className='hello-user'>Hola, {usuario.nombre} </span>
+              <img className='logo-carrito' src="../img/carrito_bl.png" alt="carrito del nav" /><span className='carrito-cont'>{carrito.length}</span>                        
+            </div>
+          ) : (
+            <Link to="/login">&#119070; Iniciar Sesión</Link>
+          )}
         </li>
       </ul>
         <div className="cuerdas">

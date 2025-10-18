@@ -1,16 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAppContext } from "../context/appContext";
 
-export default function Pagar({
-  isAuthenticated,
-  setIsAuthenticated,
-  usuario,
-  setUsuario,
-}) {
-  const location = useLocation();
+export default function Pagar() {
+  const { usuario, cerrarSesion, carrito, vaciarCarrito } = useAppContext();
   const navigate = useNavigate();
 
-  // Datos del carrito
-  const carrito = location.state?.carrito || [];
+
   // Calculo del total
   const total = carrito.reduce(
     (suma, g) => suma + Number(g.precio),
@@ -20,21 +15,14 @@ export default function Pagar({
   // Función para finalizar compra
   const comprar = () => {
     alert("¡Compra realizada con éxito!");
+    vaciarCarrito();
     navigate("/galeria");
-  };
-
-  // Función para cerrar sesión
-  const cerrarSesion = () => {
-    setIsAuthenticated(false);
-    setUsuario({ nombre: "", email: "" });
   };
 
   return (
     <div>
       <div>
         <h2>{usuario.nombre}</h2>
-        <p>Email: {usuario.email}</p>
-        <button onClick={cerrarSesion}>Cerrar sesión</button>
         <hr />
       </div>
 
@@ -42,19 +30,21 @@ export default function Pagar({
         <h2>Tu compra:</h2>
 
         {carrito.map((g) => (
-          <div key={g.id}>
+          <div key={g.id} className="carrito-a-pagar">
             <img src={g.avatar} alt={g.marca} width="60" />
             <span>{g.marca}</span>
-            <strong>${g.precio}</strong>
+            <p>{g.modelo}</p>
+            <p>{g.tipo}</p>
+            <p>u$s{g.precio}</p>
           </div>
         ))}
 
-        <h3>Total a pagar: ${total}</h3>
+        <h3>Total a pagar: u$s{total}</h3>
       </div>
 
       <div>
-        <button onClick={comprar}>Confirmar y Pagar</button>
-        <button onClick={() => navigate("/galeria")}>Cancelar</button>
+        <button onClick={comprar} className="botones">Confirmar y Pagar</button>
+        <button onClick={() => navigate("/galeria")} className="botones">Cancelar</button>
       </div>
     </div>
   );
