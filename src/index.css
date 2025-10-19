@@ -708,8 +708,7 @@ footer {
   }
 
 .torres {
-    width: 80px;
-    margin-top: 0;
+    display: none;
 }
 
   nav {
