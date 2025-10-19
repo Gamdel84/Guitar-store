@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from '../components/carousel.jsx'
 
-function Inicio() {
+export default function Inicio() {
   return (
     <>
       <h2>♪♫ Bienvenidos al mundo de las cuerdas ♫♪</h2>
@@ -24,4 +24,3 @@ function Inicio() {
   )
 }
 
-export default Inicio

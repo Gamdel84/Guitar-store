@@ -11,9 +11,10 @@ export default function Contacto() {
   };
 
   return (
+    <>
     <section>
       <div>
-        <h2 id="titulo-contacto">♪♫ Contacto ♫♪</h2>
+        <h2>♪♫ Contacto ♫♪</h2>
         <address>
           Guitar Store — Av. Siempre Viva 742, Buenos Aires<br />
           <a href="mailto:info@guitarstore.com">info@guitarstore.com</a>
@@ -74,5 +75,6 @@ export default function Contacto() {
         <Link to= "/"><button>Volver al inicio</button></Link>
       </div>
     </section>
+    </>
   );
 }

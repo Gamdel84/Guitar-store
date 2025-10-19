@@ -58,7 +58,7 @@ export const AppProvider = ({children}) => {
   export function useAppContext() {
     const context = useContext(AppContext);
     if (!context) {
-      throw new Error("useAppContext must be used within a AppProvider");
+      throw new Error("useAppContext debe usarse dentro de AppProvider");
     }
     return context;
   };

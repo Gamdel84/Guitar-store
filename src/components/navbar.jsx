@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
 
 
-function Navbar() {
+export default function Navbar() {
   const { isAuthenticated, usuario, carrito, cerrarSesion } = useAppContext();
   return (
    <> 
@@ -29,8 +29,7 @@ function Navbar() {
         <li>
           {isAuthenticated ? (
             <div className='nav-user'>
-              <li><button onClick={cerrarSesion} className='btn-cl-sesion'>Cerrar Sesión</button></li>
-              
+              <li><button onClick={cerrarSesion}>Cerrar Sesión</button></li>              
               <li><img className='logo-carrito' src="../img/carrito_bl.png" alt="carrito del nav" /><span className='carrito-cont'>{carrito.length}</span></li>                        
             </div>
           ) : (
@@ -45,9 +44,9 @@ function Navbar() {
             
         </div>
     </nav>
-    <span className='hello-user'>Hola, {usuario.nombre} </span>
+    <p className='hello-user'>{isAuthenticated && usuario?.nombre && (
+    <p className="hello-user">Bienvenido <b className='user-log'>{usuario.nombre}</b> a Guitar store</p>)}</p>
     </>
   )
 }
 
-export default Navbar

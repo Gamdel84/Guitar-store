@@ -11,7 +11,6 @@ import RutaProtegida from "./components/rutaProtegida.jsx";
 import Pagar from "./components/pagar.jsx";
 import Contacto from "./pages/contacto.jsx";
 import Footer from "./components/footer.jsx";
-import Arriba from "./components/arriba.jsx";
 
 export default function App() {
 
@@ -35,7 +34,6 @@ export default function App() {
         }/>
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
-      <Arriba />
       <Footer />
     </AppProvider>
     </>

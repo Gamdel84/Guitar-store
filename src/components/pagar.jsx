@@ -32,7 +32,7 @@ export default function Pagar() {
         {carrito.map((g) => (
           <div key={g.id} className="carrito-a-pagar">
             <img src={g.avatar} alt={g.marca} width="60" />
-            <span>{g.marca}</span>
+            <p>{g.marca}</p>
             <p>{g.modelo}</p>
             <p>{g.tipo}</p>
             <p>u$s{g.precio}</p>
