@@ -687,7 +687,7 @@ footer {
 }
 
 /* 600px ↓ : cambiar a 1 columna, escalar carrusel */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .cards-container {
     grid-template-columns: 1fr;
     max-width: 400px;
