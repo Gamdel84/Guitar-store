@@ -698,7 +698,9 @@ footer {
   h2 {
     font-size: 1.5rem;
   }
-
+  .cont-inicio {
+    max-width: 600px;
+  }
   .carouselF, .carouselG {
     width: 180px;
     height: 80px;
