@@ -23,7 +23,7 @@ export default function Contacto() {
 
       <form onSubmit={onSubmit}>
         <fieldset>
-          <legend>Dejanos tu consulta</legend>
+          <legend>Dejános tu consulta</legend>
 
           <div>
             <label htmlFor="nombre">Nombre</label>

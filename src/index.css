@@ -527,7 +527,7 @@ footer {
 }
 
 /*Responsive*/
-@mwsia (max-width: 1800px) {
+@media (max-width: 1800px) {
   .cards-container {
     max-width: 1200px;
     gap: 24px;

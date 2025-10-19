@@ -8,9 +8,9 @@ export default function DetalleGaleria() {
     if (!g) {
     return (
       <div>
-        <p>No esta enchufada</p>
+        <p>No está enchufada</p>
         <Link to="/galeria">
-          <button>Volver a Galeria</button>
+          <button>Volver a Galería</button>
         </Link>
       </div>
     );
@@ -29,7 +29,7 @@ export default function DetalleGaleria() {
             <img src={g.avatar} alt={g.marca} width="30%" />
         </li>
         <p>
-          <Link to={`/galeria`}><button>Volver a Galeria</button></Link>
+          <Link to={`/galeria`}><button>Volver a Galería</button></Link>
         </p>
 
     </ul>

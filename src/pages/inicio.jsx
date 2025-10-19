@@ -10,15 +10,12 @@ export default function Inicio() {
           <img src="/img/torre_izq1.png" alt="Torre de parlantes" className='torres' />
           <Carousel />
           <img src="/img/torre_der1.png" alt="Torre de parlantes" className='torres' />
-        </div>
-      
+        </div>      
         <p>
         Llegaste al lugar indicado. <br />
-        Tenemos todo lo que un músico necesita en su sala. Comunicate con nosotros a traves de nuestros medio de contacto. Visita nuestra galeria con las guitarras que usan los mas grandes del mundo de las cuerdas. <br />
+        Tenemos todo lo que un músico necesita en su sala. Comunicate con nosotros a través de nuestros medios de contacto. Visita nuestra galería con las guitarras que usan los más grandes del mundo de las cuerdas. <br />
         También podes registrarte, accede a nuestro sistema de suma de puntos y podes participar de sorteos y beneficios, que solo un lugar como Guitar Store te puede ofrecer.
-        </p>
-      
-      
+        </p>     
       </div> 
     </>
   )
