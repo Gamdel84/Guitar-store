@@ -527,6 +527,54 @@ footer {
 }
 
 /*Responsive*/
+@mwsia (max-width: 1800px) {
+  .cards-container {
+    max-width: 1200px;
+    gap: 24px;
+  }
+
+  .carouselF, .carouselG {
+    width: 440px;
+    height: 290px;
+    z-index: 1;
+  }
+  nav {
+    z-index: 1000;
+  }
+}
+
+@media (max-width: 1600px) {
+  .cards-container {
+    max-width: 1100px;
+    gap: 22px;
+  }
+
+  .carouselF, .carouselG {
+    width: 420px;
+    height: 270px;
+    z-index: 1;
+  }
+  nav {
+    z-index: 1000;
+  }
+}
+
+@media (max-width: 1400px) {
+  .cards-container {
+    max-width: 1000px;
+    gap: 20px;
+  }
+
+  .carouselF, .carouselG {
+    width: 400px;
+    height: 250px;
+    z-index: 1;
+  }
+  nav {
+    z-index: 1000;
+  }
+}
+
 @media (max-width: 1200px) {
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
@@ -537,6 +585,7 @@ footer {
   .carouselF, .carouselG {
     width: 380px;
     height: 250px;
+    z-index: 1;
   }
   nav {
     z-index: 1000;
