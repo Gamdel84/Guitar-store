@@ -458,7 +458,7 @@ ol li {
   gap: 10px;
 }
 
-.btn-cl-sesion {
+/* .btn-cl-sesion {
   position: absolute;
   right: 60px;
   padding: 3px 8px;
@@ -470,16 +470,13 @@ ol li {
   border: none;
   cursor: pointer;
   font-family: var(--font);
-}
+} */
 
 .hello-user {
-  position: absolute;
-  top: 12px;
-  left: 10px;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bold;
+  display: block;
   color: var(--p-color);
+  font-size: 1.2rem;
+  font-family: var(--font);
 }
 
 .logo-carrito {
@@ -707,6 +704,13 @@ footer {
     z-index: 0;
   }
 
+  .logo-carrito {
+    width: 25px;
+    height: 25px;
+    top: 11px;
+    right: 1rem;
+  }
+
 .torres {
     display: none;
 }
@@ -717,7 +721,7 @@ footer {
 
   #navegacion {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     gap: 3px;
     z-index: 1000;

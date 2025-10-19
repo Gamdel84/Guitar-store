@@ -6,7 +6,7 @@ import { useAppContext } from '../context/appContext';
 function Navbar() {
   const { isAuthenticated, usuario, carrito, cerrarSesion } = useAppContext();
   return (
-    
+   <> 
     <nav>
         <div className="cuerdas">
             <hr />
@@ -29,9 +29,9 @@ function Navbar() {
         <li>
           {isAuthenticated ? (
             <div className='nav-user'>
-              <button onClick={cerrarSesion} className='btn-cl-sesion'>Cerrar Sesión</button>
-              <span className='hello-user'>Hola, {usuario.nombre} </span>
-              <img className='logo-carrito' src="../img/carrito_bl.png" alt="carrito del nav" /><span className='carrito-cont'>{carrito.length}</span>                        
+              <li><button onClick={cerrarSesion} className='btn-cl-sesion'>Cerrar Sesión</button></li>
+              
+              <li><img className='logo-carrito' src="../img/carrito_bl.png" alt="carrito del nav" /><span className='carrito-cont'>{carrito.length}</span></li>                        
             </div>
           ) : (
             <Link to="/login">&#119070; Iniciar Sesión</Link>
@@ -45,6 +45,8 @@ function Navbar() {
             
         </div>
     </nav>
+    <span className='hello-user'>Hola, {usuario.nombre} </span>
+    </>
   )
 }
 
