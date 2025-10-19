@@ -732,9 +732,8 @@ footer {
     padding: 1px 3px;
   }
   .btn-cl-sesion {
-    font-size: 0.8rem;
-    padding: 2px 5px;
-    top: 16px;
+    font-size: 0.6rem;
+    padding: 1px 3px;
     z-index: 1000;
   }
   .arriba {
