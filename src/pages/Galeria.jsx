@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import CarritoCompras from "../components/Carrito";
+import CarritoCompras from "../components/Carrito.jsx";
 import { useCartContext } from "../context/CartContext";
 
 const API_URL = "https://68e033f693207c4b4793f5d0.mockapi.io/api/guitars";
