@@ -1,50 +1,60 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { useAppContext } from "../context/appContext";
+// src/components/Pagar.jsx
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
+import { useCartContext } from "../context/CartContext";
 
 export default function Pagar() {
-  const { usuario, cerrarSesion, carrito, vaciarCarrito } = useAppContext();
+  const { usuario } = useAuthContext();
+  const { carrito, vaciarCarrito, total } = useCartContext();
   const navigate = useNavigate();
 
-
-  // Calculo del total
-  const total = carrito.reduce(
-    (suma, g) => suma + Number(g.precio),
-    0
-  );
-
-  // Función para finalizar compra
   const comprar = () => {
     alert("¡Compra realizada con éxito!");
     vaciarCarrito();
     navigate("/galeria");
   };
 
-  return (
-    <div>
-      <div>
-        <h2>{usuario.nombre}</h2>
-        <hr />
+  if (!carrito.length) {
+    return (
+      <div className="contenedor-pago">
+        <h2>No hay productos en el carrito</h2>
+        <button onClick={() => navigate("/galeria")}>Volver a la galería</button>
       </div>
+    );
+  }
 
-      <div>
-        <h2>Tu compra:</h2>
+  return (
+    <div className="contenedor-pago">
+      <h2>Revisión de compra</h2>
 
+      {usuario && (
+        <p>
+          Comprador: <strong>{usuario.nombre}</strong> ({usuario.email})
+        </p>
+      )}
+
+      <div className="lista-pago">
+        <hr />
         {carrito.map((g) => (
-          <div key={g.id} className="carrito-a-pagar">
-            <img src={g.avatar} alt={g.marca} width="60" />
-            <p>{g.marca}</p>
-            <p>{g.modelo}</p>
-            <p>{g.tipo}</p>
-            <p>u$s{g.precio}</p>
+          <div key={g.id} className="item-pago">
+            <p>{g.marca} {g.modelo}</p>
+            <p>Cantidad: {g.cantidad}</p>
+            <p>Precio unitario: u$s{g.precio}</p>
           </div>
         ))}
-
         <h3>Total a pagar: u$s{total}</h3>
       </div>
 
-      <div>
-        <button onClick={comprar} className="botones">Confirmar y Pagar</button>
-        <button onClick={() => navigate("/galeria")} className="botones">Cancelar</button>
+      <div className="acciones-pago">
+        <button onClick={comprar} className="botones">
+          Confirmar y pagar
+        </button>
+        <button
+          onClick={() => navigate("/galeria")}
+          className="botones"
+        >
+          Seguir comprando
+        </button>
       </div>
     </div>
   );

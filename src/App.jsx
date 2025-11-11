@@ -1,23 +1,27 @@
 import { Routes, Route } from "react-router-dom";
-import { AppProvider } from "./context/appContext.jsx";
-import Header from "./components/header.jsx";
-import Navbar from "./components/navbar.jsx";
-import Inicio from "./pages/inicio.jsx";
-import Galeria from "./pages/galeria.jsx";
-import DetalleGaleria from "./pages/detalleGaleria.jsx";
-import Servicios from "./pages/servicios.jsx";
-import IniciarSesion from "./components/sesion.jsx";
-import RutaProtegida from "./components/rutaProtegida.jsx";
-import Pagar from "./components/pagar.jsx";
-import Contacto from "./pages/contacto.jsx";
-import Footer from "./components/footer.jsx";
+import Header from "./components/Header.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
+import Inicio from "./pages/Inicio.jsx";
+import Galeria from "./pages/Galeria.jsx";
+import DetalleGaleria from "./pages/DetalleGaleria.jsx";
+import Servicios from "./pages/Servicios.jsx";
+import Contacto from "./pages/Contacto.jsx";
+import IniciarSesion from "./components/Sesion.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import RutaProtegida from "./components/RutaProtegida.jsx";
+import Pagar from "./components/Pagar.jsx";
+import FormularioProducto from "./components/formularioCarga.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 
 export default function App() {
 
 
   return (
     <>
-    <AppProvider>
+    <AuthProvider>
+      <CartProvider>
       <Header />
       <Navbar />
       <Routes>
@@ -26,16 +30,19 @@ export default function App() {
         <Route path="/galeria/:id" element={<DetalleGaleria />} />
         <Route path="/galeria/:tipo/:id" element={<DetalleGaleria />} />
         <Route path="/servicios" element={<Servicios />} />
+        <Route path="/contacto" element={<Contacto />} />
         <Route path="/login" element={<IniciarSesion/>}/>
         <Route path="/pagar" element={
           <RutaProtegida>
             <Pagar/>
           </RutaProtegida>
         }/>
-        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/agregar-producto" element={<RutaProtegida soloAdmin={true}><FormularioProducto /></RutaProtegida>}/>
+        <Route path="/dashboard" element={<RutaProtegida soloAdmin={true}><Dashboard /></RutaProtegida>}/>
       </Routes>
       <Footer />
-    </AppProvider>
+      </CartProvider>
+    </AuthProvider>
     </>
   );
 }

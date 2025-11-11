@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import CarritoCompras from "../components/carrito";
-import { useAppContext } from "../context/appContext";
+import CarritoCompras from "../components/Carrito";
+import { useCartContext } from "../context/CartContext";
 
 const API_URL = "https://68e033f693207c4b4793f5d0.mockapi.io/api/guitars";
 
@@ -9,7 +9,7 @@ export default function Galeria() {
   const [items, setItems] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
-  const { agregarAlCarrito } = useAppContext();
+  const { agregarAlCarrito } = useCartContext();
 
 
   useEffect(() => {
@@ -27,8 +27,7 @@ export default function Galeria() {
       })
       .finally(() => setCargando(false));
   }, []);
-
-
+  
 
   if (cargando) return <p>Cargando…</p>;
   if (error) return <p>{error}</p>;

@@ -1,15 +1,18 @@
-import React from 'react';
+// src/components/RutaProtegida.jsx
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAppContext } from '../context/appContext';
+import { useAuthContext } from '../context/AuthContext';
 
-function RutaProtegida({ children }) {
-  const { isAuthenticated } = useAppContext();
+export default function RutaProtegida({ children, soloAdmin = false }) {
+  const { usuario, isAdmin } = useAuthContext();
   const location = useLocation();
- 
-  if (!isAuthenticated) {
-    // Pasa el state actual (que contiene el carrito) a /login
-    return <Navigate to="/login" state={location.state} replace />;
+
+  if (!usuario) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
+
+  if (soloAdmin && !isAdmin) {
+    return <Navigate to="/" replace />;
+  }
+
   return children;
 }
-export default RutaProtegida;

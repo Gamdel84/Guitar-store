@@ -1,9 +1,11 @@
 import { Link, useParams, useLocation } from "react-router-dom";
+import { useCartContext } from "../context/CartContext";
 
 export default function DetalleGaleria() {
     const { id } = useParams();
     const location = useLocation();
     const g = location.state?.g;
+    const { agregarAlCarrito } = useCartContext();
 
     if (!g) {
     return (
@@ -28,6 +30,9 @@ export default function DetalleGaleria() {
             <p>{g.tipo}</p>
             <img src={g.avatar} alt={g.marca} width="30%" />
         </li>
+        <p>
+          <button onClick={() => agregarAlCarrito(g)}>Comprar</button>
+        </p>
         <p>
           <Link to={`/galeria`}><button>Volver a Galería</button></Link>
         </p>

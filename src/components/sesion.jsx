@@ -1,66 +1,63 @@
-import React, { useState } from "react";
+// src/components/Sesion.jsx
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useAppContext } from "../context/appContext";
+import { useAuthContext } from "../context/AuthContext";
 
 export default function IniciarSesion() {
+  const { iniciarSesion } = useAuthContext();
   const navigate = useNavigate();
-  const ubicacion = useLocation();
+  const location = useLocation();
+  const [form, setForm] = useState({ nombre: "", email: "", pass: "" });
 
-  const { setIsAuthenticated, setUsuario } = useAppContext();
-
-  const [formulario, setFormulario] = useState({nombre: '', email: '', pass: ''});
+  const from = location.state?.from?.pathname || "/";
 
   const manejarEnvio = (e) => {
-    e.preventDefault();    
-    if (formulario.nombre && formulario.email && formulario.pass) {
-      setIsAuthenticated(true);
-      setUsuario(formulario);
+    e.preventDefault();
+    const { nombre, email, pass } = form;
 
-      if (ubicacion.state?.carrito) {
-        navigate("/pagar", { state: { carrito: ubicacion.state.carrito } });
-      } else {
-        navigate("/galeria");
-      }
-    } else {
-      alert('Es necesario iniciar sesión para continuar');
+    // Admin hardcodeado
+    if (nombre === "admin" && email === "admin@admin" && pass === "admin") {
+      iniciarSesion({ nombre: "Admin", email, rol: "admin" });
+      return navigate("/dashboard", { replace: true });
     }
+
+    // Usuario normal
+    iniciarSesion({ nombre, email, rol: "user" });
+    navigate(from, { replace: true });
   };
 
   return (
-    <>
-    <div className="sesion">
+    <div className="cont-form">
       <h2>Iniciar sesión</h2>
       <form onSubmit={manejarEnvio}>
-        <label htmlFor="name">Ingrese su nombre:</label>
-        <input  
+        <input
           type="text"
-          placeholder="Nombre completo..."
-          value={formulario.nombre}
-          onChange={(e) => setFormulario({...formulario, nombre: e.target.value})}
+          placeholder="Nombre"
+          value={form.nombre}
+          onChange={(e) => setForm({ ...form, nombre: e.target.value })}
           required
         />
-        <label htmlFor="email">Ingrese su email:</label>
         <input
           type="email"
-          placeholder="tu@correo.com"
-          value={formulario.email}
-          onChange={(e) => setFormulario({...formulario, email: e.target.value})}
+          placeholder="Email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
           required
         />
-        <label passwordFor="password">Ingrese su contraseña:</label>
         <input
           type="password"
-          placeholder="Tu contraseña..."
-          value={formulario.pass}
-          onChange={(e) => setFormulario({...formulario, pass: e.target.value})}
+          placeholder="Contraseña"
+          value={form.pass}
+          onChange={(e) => setForm({ ...form, pass: e.target.value })}
           required
         />
-        <div>
+        <div className="botones">
           <button type="submit">Continuar</button>
-          <button type="button" onClick={() => navigate("/galeria")}>Cancelar</button>
+          <button type="button" onClick={() => navigate("/galeria")}>
+            Cancelar
+          </button>
         </div>
       </form>
     </div>
-    </>
   );
 }
