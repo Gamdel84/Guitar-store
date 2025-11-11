@@ -1,7 +1,7 @@
 // src/components/FormularioCarga.jsx
 import { useState } from "react";
 
-export default function FormularioProducto({ onAdd }) {
+export default function FormularioCarga({ onAdd }) {
   const [form, setForm] = useState({
     marca: "",
     modelo: "",

@@ -17,7 +17,7 @@ export default function IniciarSesion() {
 
     // Admin hardcodeado
     if (nombre === "admin" && email === "admin@admin" && pass === "admin") {
-      iniciarSesion({ nombre: "Admin", email, rol: "admin" });
+      iniciarSesion({ nombre: "admin", email, rol: "admin" });
       return navigate("/dashboard", { replace: true });
     }
 

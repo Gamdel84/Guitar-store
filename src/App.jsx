@@ -11,7 +11,7 @@ import IniciarSesion from "./components/Sesion.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import RutaProtegida from "./components/RutaProtegida.jsx";
 import Pagar from "./components/Pagar.jsx";
-import FormularioProducto from "./components/formularioCarga.jsx";
+import FormularioCarga from "./components/FormularioCarga.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 
@@ -37,7 +37,7 @@ export default function App() {
             <Pagar/>
           </RutaProtegida>
         }/>
-        <Route path="/agregar-producto" element={<RutaProtegida soloAdmin={true}><FormularioProducto /></RutaProtegida>}/>
+        <Route path="/agregar-producto" element={<RutaProtegida soloAdmin={true}><FormularioCarga /></RutaProtegida>}/>
         <Route path="/dashboard" element={<RutaProtegida soloAdmin={true}><Dashboard /></RutaProtegida>}/>
       </Routes>
       <Footer />
